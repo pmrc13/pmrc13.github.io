@@ -1,0 +1,722 @@
+<html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+
+    <title>Cursos</title>
+
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <link href="main.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+
+    <script>
+$(document).ready(function(){
+    $('#cb1').prop('checked', true);
+    $(".legenda_todos").show();
+    $(".legenda_local").hide();
+    $(".legenda_possivel").hide();
+    $(".legenda_curso").hide();
+    $("#formid").hide();
+    $(".espCurso").hide();
+    
+    $('input.checkbox1').on('change', function() {
+       $('input.checkbox1').not(this).prop('checked', false);  
+    });
+
+    $("#cb1").change(function() {
+        if(this.checked) {
+            $("#mapimg").attr("src","map2todos.png");
+            $(".legenda_todos").show();
+            $(".legenda_local").hide();
+            $(".legenda_possivel").hide();
+            $(".legenda_curso").hide();
+            $("#formid").hide();
+            $(".espCurso").hide();
+        }
+        else
+            $(".legenda_todos").hide();
+    });
+
+    $("#botao1").click(function(){
+        $("#mapimg").attr("src","map2curso.png");
+    });
+
+    $("#cb2").change(function() {
+        if(this.checked) {
+            $("#mapimg").attr("src","map2possiveis.png");
+            $(".legenda_possivel").show();
+            $(".legenda_local").hide();
+            $(".legenda_curso").hide();
+            $(".legenda_todos").hide();
+            $("#formid").hide();
+            $(".espCurso").hide();
+        }
+        else
+        $(".legenda_curso").hide();
+    });
+
+    $("#cb3").change(function() {
+        if(this.checked) {
+            alert("A aplicação irá aceder à sua localização");
+            $("#mapimg").attr("src","map2local0.png");
+            $(".legenda_local").show();
+            $("#formid").show();
+            $(".legenda_curso").hide();
+            $(".legenda_possivel").hide();
+            $(".legenda_todos").hide();
+            $(".espCurso").hide();
+        }
+        else{
+            $("#formid").hide();
+            $(".legenda_local").hide();
+            
+        }
+    });
+
+    $("#rangeInputId").change(function() {
+        if(this.value == 0) {
+            $("#mapimg").attr("src","map2local0.png");
+        }
+        if(this.value == 10) {
+            $("#mapimg").attr("src","map2local1.png");
+        }
+        if(this.value == 20) {
+            $("#mapimg").attr("src","map2local2.png");
+        }
+    });
+
+    $("#cb4").change(function() {
+        if(this.checked) {
+            $(".legenda_curso").show();
+            $(".espCurso").show();
+            $(".legenda_local").hide();
+            $(".legenda_possivel").hide();
+            $(".legenda_todos").hide();
+            $("#formid").hide();
+        }
+        else{
+            $(".legenda_curso").hide();
+            $(".espCurso").hide();
+        }
+    });
+
+    $(".pop1").hide();
+    $(".pop2").hide();
+    $(".pop3").hide();
+    $(".pop4").hide();
+    $(".pop5").hide();
+    $(".pop6").hide();
+    $(".pop7").hide();
+    $(".pop8").hide();
+
+    $(".fctgreen").click(function(){
+        $(".pop1").toggle();
+        $(".list1").show();
+        $(".pop2").hide();
+    $(".pop3").hide();
+    $(".pop4").hide();
+    $(".pop5").hide();
+    $(".pop6").hide();
+    $(".pop7").hide();
+        $(".pop8").hide();
+
+    });
+
+    $(".cursos1").click(function(){
+        $(".list1").hide();
+        $(".pop2").show();
+    });
+
+    $(".feedback").click(function(){
+        $(".list1").hide();
+        $(".pop7").show();
+    });
+
+    $(".info").click(function(){
+        $(".list1").hide();
+        $(".pop6").show();
+    });
+
+    $(".miei").click(function(){
+        $(".pop2").hide();
+        $(".pop3").show();
+    });
+
+    $(".medias").click(function(){
+        $(".pop3").hide();
+        $(".pop1").hide();
+        $(".pop4").show();
+    });
+
+    $(".provas").click(function(){
+        $(".pop3").hide();
+        $(".pop5").show();
+    });
+
+    $(".custos").click(function(){
+        $(".list1").hide();
+        $(".pop8").show();
+    });
+
+    $(".goback1").click(function(){
+        $(".pop2").hide();
+        $(".list1").show();
+        
+    });
+
+    $(".goback2").click(function(){
+        $(".pop3").hide();
+        $(".pop2").show();
+    });
+
+    $(".goback3").click(function(){
+        $(".pop1").show();
+        $(".pop4").hide();
+        $(".pop3").show();
+    });
+
+    $(".goback4").click(function(){
+         $(".pop5").hide();
+        $(".pop3").show();
+    });
+
+    $(".goback5").click(function(){
+         $(".pop6").hide();
+        $(".list1").show();
+    });
+
+    $(".goback6").click(function(){
+         $(".pop7").hide();
+         $(".list1").show();
+    });
+
+    $(".goback7").click(function(){
+         $(".pop8").hide();
+         $(".list1").show();
+    });
+
+    
+});
+</script>
+
+    <style>
+        body {
+            background-image: url("wll.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .form-control {
+            width: 50px;
+            display: inline-block;
+        }
+        
+        div.media {
+            border: 2px solid #000000;
+            margin-top: -10px;
+        }
+        
+        h1 {
+            color: white;
+            text-align: center;
+            margin-top: 25px;
+        }
+        
+        .navbar-nav {
+            float: none;
+            margin: 0 auto;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .navbar-nav > li {
+            display: inline-block;
+            float: none;
+            vertical-align: top;
+            font-size: 200%;
+        }
+        
+        .navbar .navbar-collapse {
+            text-align: center;
+            vertical-align: top;
+        }
+        
+        img.center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .mapa {
+            position: relative;
+        }
+        
+        .popimg {
+            position: relative;
+        }
+        
+        .popimg2 {
+            position: relative;
+        }
+        
+        .mediasImg {
+            position: absolute;
+        }
+        
+        .fctgreen {
+            position: absolute;
+        }
+        
+        .label1 {
+            position: absolute;
+        }
+        
+        .list1 {
+            position: absolute;
+        }
+        
+        .pop1 {
+            position: absolute;
+        }
+        
+        .pop2 {
+            position: absolute;
+        }
+        
+        .goback1 {
+            position: absolute;
+        }
+        
+        .goback2 {
+            position: absolute;
+        }
+        
+        .goback3 {
+            position: absolute;
+        }
+        
+        .goback4 {
+            position: absolute;
+        }
+        
+        .pop2 {
+            position: absolute;
+        }
+        
+        .list3 {
+            position: absolute;
+        }
+        
+        .label3 {
+            position: absolute;
+        }
+        
+        .pop3 {
+            position: absolute;
+        }
+        
+        .label4 {
+            position: absolute;
+        }
+        
+        .pop4 {
+            position: absolute;
+        }
+        
+        .label5 {
+            position: absolute;
+        }
+        
+        .pop5 {
+            position: absolute;
+        }
+        
+        .label6 {
+            position: absolute;
+        }
+        
+        .label7 {
+            position: absolute;
+        }
+        .label8 {
+            position: absolute;
+        }
+        .label9 {
+            position: absolute;
+        }
+        .label10 {
+            position: absolute;
+        }
+        .label11{
+            position: absolute;
+        }
+        .label12 {
+            position: absolute;
+        }
+        .label13{
+            position: absolute;
+        }
+        .label14 {
+            position: absolute;
+        }
+        .pop6 {
+            position: absolute;
+        }
+        .pop8 {
+            position: absolute;
+        }
+        .goback6 {
+            position: absolute;
+        }
+        .goback5 {
+            position: absolute;
+        }
+        .goback7 {
+            position: absolute;
+        }
+        .pop7 {
+            position: absolute;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- The justified navigation menu is meant for single line per list item.
+           Multiple lines will require custom code not provided by Bootstrap. -->
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" style="
+    width: 44px;
+    height: 34px;
+    margin-top: 30px;
+">
+		<span class="sr-only">Toggle navigation</span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+	</button>
+                    <a href="inicio.html"><img src="ues.png"></a>
+
+
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" aria-expanded="false" style="height: 1px;">
+
+                    <ul class="nav navbar-nav" style="
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-left: 70px;
+">
+                        <li><a href="inicio.html" style="margin-top: 0px; padding-top: 41px; padding-bottom: 31px;">Início</a></li>
+                        <li class="active"><a href="cursos.html" style="margin-top: 0px; padding-top: 41px; padding-bottom: 31px;">Cursos</a></li>
+                        <li><a href="media.html" style="margin-top: 0px; padding-top: 41px; padding-bottom: 31px;">Calcular Média</a></li>
+                        <li><a href="forum.html" style="margin-top: 0px; padding-top: 41px; padding-bottom: 31px;">Fórum</a></li>
+                        <li><a href="sobre.html" style="margin-top: 0px; padding-top: 41px; padding-bottom: 31px;">Sobre</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="margin-right: 0px;padding-left: 0px;margin-left: 0px;left: 80px;padding-bottom: 5px;"><img src="Education.png" style="
+    margin-left: 0px;
+    padding-right: 10px;
+    margin-bottom: 0px;
+">User<span class="caret"></span></a>
+                            <ul class="dropdown-menu" style="
+    left: 80px;
+">
+                                <li><a href="edit_profile.html">Editar perfil</a></li>
+                                <li><a href="login.html">Sair</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+        <br><br>
+
+
+        <div class="page-header page-heading">
+            <h1 style="
+    margin-top: 80px;
+">Pesquisar cursos</h1>
+            <div class="clearfix"></div>
+        </div>
+
+        <br><br>
+        <!-- INICIO ROW 1-->
+        <div class="row">
+            <div class="col-md-3" style="
+    margin-top: 90px;
+    font-size: 17;
+    background-color: whitesmoke;
+    border-radius: 20px;
+">
+                <label>Tipo de pesquisa</label>
+                <div class="checkbox">
+                    <label><input id="cb1" class="checkbox1" type="checkbox" value="">Todos os cursos</label>
+                </div>
+                <div class="checkbox">
+                    <label><input id="cb2" class="checkbox1" type="checkbox" value="">Cursos possíveis</label>
+                </div>
+                <div class="checkbox">
+                    <label><input id="cb3" class="checkbox1" type="checkbox" value="">Cursos por localização</label>
+                </div>
+                 <form name="rangeForm" id="formid" style="display: none;">
+                     <input type="range" name="rangeInputName" id="rangeInputId" value="0" min="0" max="20" step="10" oninput="rangeOutputId.value = rangeInputId.value">
+                     <output><output name="rangeOutputName" id="rangeOutputId">0</output>km</output>
+                 </form>
+                <div class="checkbox">
+                    <label><input id="cb4" class="checkbox1" type="checkbox" value="">Especificar curso</label>
+                </div>
+                <div class="espCurso" style="">
+                <input type="text" id="cursotexto">
+                <button id="botao1" type="button" style="
+    margin-top: 5px;
+">Pesquisar</button>
+               </div>
+            </div>
+
+
+            <div class="mapa">
+                <div class="col-md-6">
+                    <img id="mapimg" src="map2todos.png" class="center">
+
+                    <img src="zoomin.png" class="center" style="
+    margin-left: 393.5;
+    margin-top: -250;
+    margin-bottom: 1px;
+    padding-bottom: 0px;
+">
+                    <img src="zoomout.png" class="center" style="
+    margin-left: 393.5;
+    margin-top: 10px;
+">
+                    <a class="fctgreen" style="
+    left: 244px;
+    top: 294.986;
+"><img src="black.png"></a>
+
+                    <div class="pop1" style="display: none;">
+                        <img class="popImg" src="pop.png" style="
+    top: -260;
+    left: 109px;
+">
+                        <label class="label1" style="left: 122px;top: -250;">FCT/UNL</label>
+                        <ul class="list1" style="top: -200px; left: 176px">
+
+                            <li><a class="info">Informações</a></li>
+                            <li><a class="cursos1">Cursos</a></li>
+                            <li><a class="feedback">Feedback</a></li>
+                            <li><a class="custos">Custos</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="pop2" style="top: 120px; left: 137px; display: none;">
+                        <label class="label2" style="left: 24px;top: 353.986;margin-left: 63px;">Lista de cursos</label>
+                        <ul class="list2" style="top: 394.431;left: 54px;">
+                            <li><a class="miei">Engenharia Informática (M.I.)</a></li>
+                            <li><a href="#">Curso 1 (L)</a></li>
+                            <li><a href="#">Curso 2 (M.I.)</a></li>
+                            <li><a href="#">Curso 3 (L)</a></li>
+                        </ul>
+                        <img class="goback1" src="goback.png" style="left: 189px;bottom: -20;">
+                    </div>
+
+                    <div class="pop3" style="top: 140px; left: 121px; display: none;">
+                        <label class="label3" style="
+    top: -30;
+    left: 77px;
+">Engenharia Informática</label>
+                        <ul class="list3" style="
+    left: 70px;
+    top: 11px;
+">
+                            <li><a class="medias">Médias anteriores</a></li>
+                            <li><a class="provas">Provas de Ingresso</a></li>
+                        </ul>
+                        <img class="goback2" src="goback.png" style="
+    left: 196px;
+    top: 70px;
+">
+                    </div>
+
+                    <div class="pop4" style="top: -85px; left: -40px; display: none;">
+                        <label class="label5" style="
+    left: 15px;
+    top: 23px;
+">Engenharia In</label>
+                        <img class="popImg2" src="pop2.png">
+                        <img class="mediasImg" src="mediasAnteriores.jpg" style="
+    top: 22.778;
+    left: 47px;
+">
+                        <img class="goback3" src="goback.png" style="
+    top: 284.778;
+    left: 531px;
+">
+                    </div>
+
+                    <div class="pop5" style="top: 115px; left: 139px; display: none;">
+                        <p class="label6" style="left: 49px;top: -15;margin-left: 9px;height: 50px;width: 150px;/* width: 95px; */"><b>Provas de Ingresso</b></p>
+
+                        <p style="
+    position: absolute;
+    width: 116px;
+    top: 14px;
+">19 - Matemática A ou</p>
+                        <p style="
+    position: absolute;
+    width: 225px;
+    top: 52px;
+">04 - Economia e 19 - Matemática A ou </p>
+                        <p style="
+    position: absolute;
+    width: 150px;
+    top: 91px;
+">07 - Física e Química e 19 - Matemática A</p>
+
+                        <img class="goback4" src="goback.png" style="left: 191px;bottom: -20;top: 94px;">
+                    </div>
+
+                    <div class="pop6" style="top: 120px; left: 139px; display: none;">
+                        <p class="label7" style="left: -10;top: -10;margin-left: 9px;height: 50px;width: 150px;/* width: 95px; */"><b>Telefone: </b>21 294 8300</p>
+                        <p class="label8" style="left: -10;top: 16px;margin-left: 9px;height: 50px;width: 250px;/* width: 95px; */"><b>Morada: </b> Quinta da Torre, Campus Universitário, 2829-516 Caparica </p>
+                        <p class="label9" style="left: -10;top: 57px;margin-left: 9px;height: 50px;width: 250px;/* width: 95px; */"><b>Website: </b> <a href="http://www.fct.unl.pt/"> http://www.fct.unl.pt</a> </p>
+                        <p class="label10" style="left: -10;top: 81px;margin-left: 9px;height: 50px;width: 250px;/* width: 95px; */"><b>Ensino: </b> Universitário Público </p>
+
+                        
+                        
+
+                        <img class="goback5" src="goback.png" style="left: 191px;bottom: -20;top: 94px;">
+                    </div>
+
+                    <div class="pop7" style="top: 120px; left: 139px; display: none;">
+                        <p class="label11" style="left: -10;top: 0px;margin-left: 9px;height: 50px;width: 150px;/* width: 95px; */"><b>Feedback dos utilizadores: </b>5/5</p>
+                        <p class="label12" style="left: -10;top: 57px;margin-left: 9px;height: 50px;width: 250px;/* width: 95px; */"><b> </b> <a href="feedback.html"> Ver mais feedback</a> </p>
+
+                        
+                        
+
+                        <img class="goback6" src="goback.png" style="left: 191px;bottom: -20;top: 94px;">
+                    </div>
+
+                    <div class="pop8" style="top: 120px; left: 139px; display: none;">
+                        <p class="label13" style="left: -10;top: 12px;margin-left: 9px;height: 50px;width: 200px;/* width: 95px; */"><b>Propinas: </b>1.064€ (2016)</p>
+                        <p class="label14" style="left: -10;top: 49px;margin-left: 9px;height: 50px;width: 200px;/* width: 95px; */"><b>Aluguer de quarto e despesas: </b> 200€ - 300€ </p>
+
+                        
+                        
+
+                        <img class="goback7" src="goback.png" style="left: 191px;bottom: -20;top: 94px;">
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-3" style="
+    background-color: white;
+    border-radius: 20px;
+">
+                <label>Legenda</label>
+
+                <p><img src="black.png"> - FCT/UNL (interpretar como sendo verde)</p>
+                <div class="legenda_todos" style="top: 120px; left: 137px; display: none;">                        
+                        <p><img class="maptodosverde" src="green.png" style="left: 189px;bottom: -20;"> - Qualquer faculdade</p>
+                </div>
+
+                <div class="legenda_local" style="top: 120px; left: 137px; display: none;">                        
+                        <p><img class="maplocalverde" src="green.png" style="left: 189px;bottom: -20;"> - Faculdade no raio de km</p>
+                        <p><img class="maplocalvermelho" src="red.png" style="left: 189px;bottom: -20;"> - Faculdade fora do raio de km</p>
+                </div>
+
+                <div class="legenda_possivel" style="top: 120px; left: 137px; display: none;">                        
+                        <p><img class="mappossivelverde" src="green.png" style="left: 189px;bottom: -20;"> - Faculdade com cursos para os quais se realizaram as provas de ingresso necessárias e cuja média do ano passado foi inferior à do utilizador</p>
+                        <p><img class="mappossivelamarelo" src="yellow.png" style="left: 189px;bottom: -20;"> - Faculdade com cursos para os quais se realizaram as provas de ingresso necessárias e cuja média do ano passado foi superior/igual à do utilizador</p>
+                        <p><img class="mappossivelvermelho" src="red.png" style="left: 189px;bottom: -20;"> - Faculdade com cursos para os quais não se realizaram as provas de ingresso necessárias</p>
+                </div>
+
+                <div class="legenda_curso" style="top: 120px; left: 137px; display: block;">                        
+                        <p><img class="mappossivelverde" src="green.png" style="left: 189px;bottom: -20;"> - Faculdade com o curso pretendido e cuja média do ano passado foi inferior à do utilizador</p>
+                        <p><img class="mappossivelamarelo" src="yellow.png" style="left: 189px;bottom: -20;"> - Faculdade com o curso pretendido e cuja média do ano passado foi superior/igual à do utilizador</p>
+                        <p><img class="mappossivelvermelho" src="red.png" style="left: 189px;bottom: -20;"> - Faculdade sem o curso pretendido</p>
+                </div>
+
+            </div>
+            <br> <br> 
+        </div>
+        
+<br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+     <hr>
+
+      <footer>
+        <div class="row">
+            <div class="col-md-4">
+                <a href="#"><p style="text-align:left">Contactos</p></a>
+            </div>
+        
+            <div class="col-md-4">
+                <p style="text-align:center">2016 © UniEscolha</p>
+            </div>
+            
+            <div class="col-md-3" style="
+    width: 290px;
+    left: 57px;
+">
+                
+                <div class="row" style="position: absolute;left: 112px;top: -15;">
+                    <div class="col-md-3" style="
+    left: 0px;
+    margin-left: 50px;
+">
+                    <img border="0" id="coll" src="face.png">
+                    </div>
+
+                    <div class="col-md-3">
+                    <img border="0" id="coll" src="twi.png" class="center">
+                    </div>
+
+                    <div class="col-md-3">
+                    <img border="0" id="coll" src="insta.png" class="center">
+                    </div>
+                </div>
+            </div>
+      </div></footer>
+      </div>
+
+
+
+
+
+</body></html>

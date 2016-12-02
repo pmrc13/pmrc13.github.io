@@ -1,0 +1,579 @@
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+
+    <title>Cursos</title>
+
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+    <link href="main.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+        body {
+            background-image: url("wll.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        h1 {
+            color: white;
+            text-align: center;
+            margin-top: 25px;
+        }
+        
+        .navbar-nav {
+            float: none;
+            margin: 0 auto;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .navbar-nav > li {
+            display: inline-block;
+            float: none;
+            vertical-align: top;
+            font-size: 200%;
+        }
+        
+        .navbar .navbar-collapse {
+            text-align: center;
+            vertical-align: top;
+        }
+        
+        #login {
+            display: none;
+        }
+        
+        .login,
+        .logout {
+            position: absolute;
+            top: -3px;
+            right: 0;
+        }
+        
+        .page-header {
+            position: relative;
+        }
+        
+        .reviews {
+            color: #555;
+            font-weight: bold;
+            margin: 10px auto 20px;
+        }
+        
+        .notes {
+            color: #999;
+            font-size: 12px;
+        }
+        
+        .media .media-object {
+            max-width: 120px;
+        }
+        
+        .media-body {
+            position: relative;
+        }
+        
+        .media-date {
+            position: absolute;
+            right: 25px;
+            top: 25px;
+        }
+        
+        .media-date li {
+            padding: 0;
+        }
+        
+        .media-date li:first-child:before {
+            content: '';
+        }
+        
+        .media-date li:before {
+            content: '.';
+            margin-left: -2px;
+            margin-right: 2px;
+        }
+        
+        .media-comment {
+            margin-bottom: 20px;
+        }
+        
+        .media-replied {
+            margin: 0 0 20px 50px;
+        }
+        
+        .media-replied .media-heading {
+            padding-left: 6px;
+        }
+        
+        .btn-circle {
+            font-weight: bold;
+            font-size: 12px;
+            padding: 6px 15px;
+            border-radius: 20px;
+        }
+        
+        .btn-circle span {
+            padding-right: 6px;
+        }
+        
+        .embed-responsive {
+            margin-bottom: 20px;
+        }
+        
+        .tab-content {
+            padding: 50px 15px;
+            border: 1px solid #ddd;
+            border-top: 0;
+            border-bottom-right-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+        
+        .custom-input-file {
+            overflow: hidden;
+            position: relative;
+            width: 120px;
+            height: 120px;
+            background: #eee url('https://s3.amazonaws.com/uifaces/faces/twitter/walterstephanie/128.jpg');
+            background-size: 120px;
+            border-radius: 120px;
+        }
+        
+        input[type="file"] {
+            z-index: 999;
+            line-height: 0;
+            font-size: 0;
+            position: absolute;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            -ms-filter: "alpha(opacity=0)";
+            margin: 0;
+            padding: 0;
+            left: 0;
+        }
+        
+        .uploadPhoto {
+            position: absolute;
+            top: 25%;
+            left: 25%;
+            display: none;
+            width: 50%;
+            height: 50%;
+            color: #fff;
+            text-align: center;
+            line-height: 60px;
+            text-transform: uppercase;
+            background-color: rgba(0, 0, 0, .3);
+            border-radius: 50px;
+            cursor: pointer;
+        }
+        
+        .custom-input-file:hover .uploadPhoto {
+            display: block;
+        }
+        
+        .media-body {
+            position: relative;
+        }
+        
+        body {
+            padding-top: 70px;
+        }
+        
+        .btn-grey {
+            background-color: #D8D8D8;
+            color: #FFF;
+        }
+        
+        .rating-block {
+            background-color: #FAFAFA;
+            border: 1px solid #EFEFEF;
+            padding: 15px 15px 20px 15px;
+            border-radius: 3px;
+        }
+        
+        .bold {
+            font-weight: 700;
+        }
+        
+        .padding-bottom-7 {
+            padding-bottom: 7px;
+        }
+        
+        .review-block {
+            background-color: #FAFAFA;
+            border: 1px solid #EFEFEF;
+            padding: 15px;
+            border-radius: 3px;
+            margin-bottom: 15px;
+        }
+        
+        .review-block-name {
+            font-size: 12px;
+            margin: 10px 0;
+        }
+        
+        .review-block-date {
+            font-size: 12px;
+        }
+        
+        .review-block-rate {
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+        
+        .review-block-title {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .review-block-description {
+            font-size: 13px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false" style="
+    width: 44px;
+    height: 34px;
+    margin-top: 30px;
+">
+		<span class="sr-only">Toggle navigation</span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+	</button>
+                <a href="inicio.html" class="navbar-left"><img src="ues.png"></a>
+
+
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" aria-expanded="false" style="height: 1px;">
+
+                <ul class="nav navbar-nav" style="
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-left: 70px;
+">
+                    <li><a href="inicio.html" style="margin-top: 0px; padding-top: 41px; padding-bottom: 31px;">Início</a></li>
+                    <li><a href="cursos.html" style="margin-top: 0px; padding-top: 41px; padding-bottom: 31px;">Cursos</a></li>
+                    <li><a href="media.html" style="margin-top: 0px; padding-top: 41px; padding-bottom: 31px;">Calcular Média</a></li>
+                    <li class="active"><a href="forum.html" style="margin-top: 0px; padding-top: 41px; padding-bottom: 31px;">Fórum</a></li>
+                    <li><a href="sobre.html" style="margin-top: 0px; padding-top: 41px; padding-bottom: 31px;">Sobre</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="margin-right: 0px;padding-left: 0px;margin-left: 0px;left: 80px;padding-bottom: 5px;"><img src="Education.png" style="
+    margin-left: 0px;
+    padding-right: 10px;
+    margin-bottom: 0px;
+">User<span class="caret"></span></a>
+                        <ul class="dropdown-menu" style="
+    left: 80px;
+">
+                            <li><a href="edit_profile.html">Editar perfil</a></li>
+                            <li><a href="login.html">Sair</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+
+
+    <div class="container" style="margin-top: 35px">
+        <div class="page-header page-heading">
+            <h1 style="
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 6px;
+">Fórum</h1>
+            <br>
+
+            <br>
+            <ol class="breadcrumb pull-right where-am-i" style="
+    margin-bottom: 0px;
+    margin-top: -40;
+">
+                <li><a href="forum.html">Fórum</a></li>
+                <li><a href="forum.html">Tópicos</a></li>
+                <li><a href="forum2.html">Ensino Público</a></li>
+                <li><a href="forum3.html">FCT/UNL</a></li>
+                <li class="active">Feedback</li>
+            </ol>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-sm-offset-1" id="logout" style="
+    margin-left: 0px;
+">
+                    <div class="page-header">
+                        <h3 class="reviews">Feedback</h3>
+                    </div>
+
+                </div>
+            </div>
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-sm-3" style="
+    margin-left: 300px;
+">
+                        <div class="rating-block">
+                            <h4>Média dos feedbacks</h4>
+                            <h2 class="bold padding-bottom-7">5 <small>/ 5</small></h2>
+                            <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+					  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					</button>
+                            <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+					  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					</button>
+                            <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+					  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					</button>
+                            <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+					  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					</button>
+                            <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+					  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-3" style="
+    top: -7;
+">
+                        <h4>Distribuição de feedback</h4>
+                        <div class="pull-left">
+                            <div class="pull-left" style="width:35px; line-height:1;">
+                                <div style="height:9px; margin:5px 0;">5 <span class="glyphicon glyphicon-star"></span></div>
+                            </div>
+                            <div class="pull-left" style="width:180px;">
+                                <div class="progress" style="height:9px; margin:8px 0;">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="5" style="width: 1000%">
+                                        <span class="sr-only">80% Complete (danger)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pull-right" style="margin-left:10px;">1</div>
+                        </div>
+                        <div class="pull-left">
+                            <div class="pull-left" style="width:35px; line-height:1;">
+                                <div style="height:9px; margin:5px 0;">4 <span class="glyphicon glyphicon-star"></span></div>
+                            </div>
+                            <div class="pull-left" style="width:180px;">
+                                <div class="progress" style="height:9px; margin:8px 0;">
+                                    <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="5" style="width: 80%">
+                                        <span class="sr-only">80% Complete (danger)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pull-right" style="margin-left:10px;">0</div>
+                        </div>
+                        <div class="pull-left">
+                            <div class="pull-left" style="width:35px; line-height:1;">
+                                <div style="height:9px; margin:5px 0;">3 <span class="glyphicon glyphicon-star"></span></div>
+                            </div>
+                            <div class="pull-left" style="width:180px;">
+                                <div class="progress" style="height:9px; margin:8px 0;">
+                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="3" aria-valuemin="0" aria-valuemax="5" style="width: 60%">
+                                        <span class="sr-only">80% Complete (danger)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pull-right" style="margin-left:10px;">0</div>
+                        </div>
+                        <div class="pull-left">
+                            <div class="pull-left" style="width:35px; line-height:1;">
+                                <div style="height:9px; margin:5px 0;">2 <span class="glyphicon glyphicon-star"></span></div>
+                            </div>
+                            <div class="pull-left" style="width:180px;">
+                                <div class="progress" style="height:9px; margin:8px 0;">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="5" style="width: 40%">
+                                        <span class="sr-only">80% Complete (danger)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pull-right" style="margin-left:10px;">0</div>
+                        </div>
+                        <div class="pull-left">
+                            <div class="pull-left" style="width:35px; line-height:1;">
+                                <div style="height:9px; margin:5px 0;">1 <span class="glyphicon glyphicon-star"></span></div>
+                            </div>
+                            <div class="pull-left" style="width:180px;">
+                                <div class="progress" style="height:9px; margin:8px 0;">
+                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="5" style="width: 20%">
+                                        <span class="sr-only">80% Complete (danger)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pull-right" style="margin-left:10px;">0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <hr>
+                        <div class="review-block" style="
+    width: 1127px;
+">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <img src="useri.png" class="img-rounded">
+                                    <div class="review-block-name"><a href="#">User2</a></div>
+                                    <div class="review-block-date">1 de Janeiro, 2016</div>
+                                </div>
+                                <div class="col-sm-9">
+                                    <div class="review-block-rate">
+                                        <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+                                        <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+                                        <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+                                        <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+                                        <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+                                    </div>
+                                    <div class="review-block-title"><b>Título do feedback</b></div>
+                                    <div class="review-block-description">Texto do feedback</div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <img src="Education.png" class="img-rounded">
+                                    <div class="review-block-name"><a href="#">User</a></div>
+                                    <div class="review-block-date"></div>
+                                </div>
+                                <div class="col-sm-9">
+                                    <div class="review-block-rate">
+                                        <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+                                        <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+                                        <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+                                        <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+                                        <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+                                    </div>
+
+                                    <div class="review-block-title"><input class="texto" placeholder="Título do feedback..." type="text"></div>
+
+                                    <div class="media-body">
+                                        <div class="col-sm-12">
+                                            <textarea class="form-control" name="addComment" id="addComment" rows="5" placeholder="Texto do feedback..." style="
+    width: 526px;
+    margin-left: -15;
+"></textarea>
+                                            <br>
+                                            <button class="btn btn-success btn-circle text-uppercase" style=" margin-left: -15; "><span class="glyphicon glyphicon-send"></span> Submeter</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <hr>
+
+      <footer>
+        <div class="row">
+            <div class="col-md-4">
+                <a href="#"><p style="text-align:left">Contactos</p></a>
+            </div>
+        
+            <div class="col-md-4">
+                <p style="text-align:center">2016 © UniEscolha</p>
+            </div>
+            
+            <div class="col-md-3" style="
+    width: 290px;
+    left: 57px;
+">
+                
+                <div class="row" style="position: absolute;left: 112px;top: -15;">
+                    <div class="col-md-3" style="
+    left: 0px;
+    margin-left: 50px;
+">
+                    <img border="0" id="coll" src="face.png">
+                    </div>
+
+                    <div class="col-md-3">
+                    <img border="0" id="coll" src="twi.png" class="center">
+                    </div>
+
+                    <div class="col-md-3">
+                    <img border="0" id="coll" src="insta.png" class="center">
+                    </div>
+                </div>
+            </div>
+      </div></footer>
+
+
+
+</div></body></html>
