@@ -33,6 +33,40 @@
     <![endif]-->
 
     <style>
+	
+	html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+}
+
+.demo {
+  margin: 0 auto;
+  padding-top: 64px;
+  max-width: 640px;
+  width: 94%;
+}
+
+#footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
+}
     body {
 			background-image: url("wll.jpg");
 			background-repeat: no-repeat;
@@ -91,7 +125,8 @@
 </head>
 
 <body>
-
+	<div id="container">
+	<div id="demo">
     <div class="container">
         <!-- The justified navigation menu is meant for single line per list item.
            Multiple lines will require custom code not provided by Bootstrap. -->
@@ -154,29 +189,35 @@
 <div class="page-header page-heading">
             <h1 style="
     margin-top: 80px;
-">Sobre nós</h1>
+">Sobre</h1>
             <div class="clearfix"></div>
         </div>
 
         <br>
 
-        <p style="text-align:left; font-size:18px">UniEscolha é um protótipo de uma aplicação para a Web, desenvolvida no âmbito da unidade curricular "Interação Pessoa-Máquina".</p>
-        <p style="text-align:left; font-size:18px">Os principais objetivos desta proposta são: facilitar o processo de pesquisa e obtenção de informação acerca das universidades e ajudar na decisão do curso e universidade.</p>
+        <p style="text-align:left; font-size:18px"><b>UniEscolha</b> é um protótipo de uma aplicação para a Web, desenvolvida no âmbito da unidade curricular <b>"Interação Pessoa-Máquina"</b>, do Mestrado Integrado em Engenharia Informática, da FCT/UNL.</p>
+        <p style="text-align:left; font-size:18px">Os principais objetivos desta proposta são: facilitar o processo de pesquisa, obtenção e retenção de informação acerca das universidades e ajudar na decisão do curso e universidade.</p>
         <p style="text-align:left; font-size:18px">Para esta finalidade, é pedido ao candidato que insira a sua média e notas das provas de ingresso que realizou ou, caso ainda não tenha calculado a média, use uma calculadora disponível na nossa solução.</p>
         <p style="text-align:left; font-size:18px">A interface de pesquisa de universidade/curso consiste num mapa de Portugal com todas as universidades disponíveis.</p>
         <p style="text-align:left; font-size:18px">De momento, há 4 filtros de pesquisa: todos os cursos (nenhum filtro), cursos possíveis (para os quais o candidato realizou as provas de ingresso necessárias), cursos por localização (por raio de Km, a definir pelo utilizador) e especificação de curso (faculdades que oferecem o curso pretendido).</p>
-        <p style="text-align:left; font-size:18px">O candidato também poderá criar uma conta e participar no fórum, para falar com outros utilizadores ou dar feedback sobre uma universidade.</p>
-        <p style="text-align:left; font-size:18px"><b>Importante: </b> Por se tratar de um protótipo, algumas funcionalidades não estão completamente implementadas. Além disso, apenas se assegura uma correta visualização do protótipo num computador com o browser Google Chrome.</p>
+        <p style="text-align:left; font-size:18px">O candidato também poderá participar no fórum, para falar com outros utilizadores, ou encontrar/fornecer feedback sobre uma universidade.</p>
+        <p style="text-align:left; font-size:18px"><b>Tecnologias utilizadas:</b></p>
+        <ul class="list2">
+                            <li style="font-size:17px;">Front-end - HTML, CSS, Bootstrap;</li>
+                            <li style="font-size:17px;">Back-end - JavaScript</li>
+        </ul>
+        <p style="text-align:left; font-size:18px"><b>Importante: </b> Por se tratar de um protótipo, algumas funcionalidades não estão completamente implementadas. Além disso, apenas se assegura uma correta visualização do protótipo num <b>computador</b> com sistema operativo <b>Windows</b> no browser <b>Google Chrome</b></p>
         <br>
         <p style="text-align:center; font-size:18px">Autores: Pedro Cheira 43128 | Francisco Ferreira 43244 | João Santos 42958</p>
 
 
+		<div class="container" id="footer">
      <hr>
 
       <footer>
         <div class="row">
             <div class="col-md-4">
-                <a href="#"><p style="text-align:left">Contactos</p></a>
+                <a href="contactos.html"><p style="text-align:left">Contactos</p></a>
             </div>
         
             <div class="col-md-4">
@@ -205,7 +246,7 @@
                     </div>
                 </div>
             </div>
-      </div></footer>
+      </div></footer></div></div></div>
       </div>
 
 

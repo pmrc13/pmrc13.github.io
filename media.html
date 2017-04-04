@@ -6,7 +6,6 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
 
     <title>Calcular média</title>
 
@@ -32,7 +31,46 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <script type="text/javascript">
+    function setMedia(){
+        alert("Média guardada!");
+    }
+    </script>
+
     <style>
+	html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+}
+
+.demo {
+  margin: 0 auto;
+  padding-top: 64px;
+  max-width: 640px;
+  width: 94%;
+}
+
+#footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
+}
         body {
             background-image: url("wll.jpg");
             background-repeat: no-repeat;
@@ -78,7 +116,8 @@
 </head>
 
 <body>
-
+	<div id="container">
+	<div id="demo">
     <div class="container">
 
         <!-- The justified navigation menu is meant for single line per list item.
@@ -151,10 +190,10 @@
         <!-- INICIO ROW 1-->
         <div class="row">
             <div class="col-md-6">
-                <label>Curso do ensino secundário realizado</label>
+                <label>Área do ensino secundário realizada</label>
 
                 <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">seleciona um curso  
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">Ciências e Tecnologia  
   <span class="caret"></span></button>
                     <ul class="dropdown-menu">
                         <li><a href="#">Ciências e Tecnologia</a></li>
@@ -255,14 +294,16 @@
             <br><br>
 
 
-            <div class="media">
+            <div class="media" style="
+    margin-top: -40;
+">
                 <div class="col-md-12" style="
     background-color: white;
     border-radius: 20px;
 ">
 
 
-                    <h3>Médias finais</h3>
+                    <h3><b>Médias finais</b></h3>
                     <p>Média do Secundário: <output id="out1" type="text" class="form-control" style="
     width: 41px;
     height: 24px;
@@ -286,12 +327,13 @@
                     <br><br style="
     background-color: whitesmoke;
 ">
-                    <h3>Todas as médias</h3>
+                    <h3><b>Todas as médias</b></h3>
                     <div class="table-responsive">
                         <table class="table table-bordered table-condensed">
+                            
                             <thead>
                                 <tr>
-                                    <th></th>
+                                    <th><img src="tab.png"></th>
                                     <th>35%</th>
                                     <th>40%</th>
                                     <th>45%</th>
@@ -303,7 +345,103 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Média</td>
+                                    <td><b>Mat A</b></td>
+                                    <td>
+                                        <output type="text" class="form-control" style="
+    padding-bottom: 0px;
+    padding-top: 4px;
+    padding-left: 5px;
+"> 15,65
+                                        </output>
+                                    </td>
+                                    <td>
+                                        <output type="text" class="form-control" style="
+    padding-left: 9px;
+">15,6
+                                        </output>
+                                    </td>
+                                    <td>
+                                        <output type="text" class="form-control" style="
+    padding-left: 5px;
+">15,55
+                                        </output>
+                                    </td>
+                                    <td>
+                                        <output type="text" class="form-control" style="
+    padding-left: 8px;
+">15,5
+                                        </output>
+                                    </td>
+                                    <td>
+                                        <output type="text" class="form-control" style="
+    padding-left: 6px;
+">15,45
+                                        </output>
+                                    </td>
+                                    <td>
+                                        <output type="text" class="form-control" style="
+    padding-left: 9px;
+">15,4
+                                        </output>
+                                    </td>
+                                    <td>
+                                        <output type="text" class="form-control" style="
+    padding-left: 7px;
+">15,35
+                                        </output>
+                                    </td>
+                                </tr>
+
+                                 <tr>
+                                    <td><b>FQA</b></td>
+                                    <td>
+                                        <output type="text" class="form-control" style="
+    padding-bottom: 0px;
+    padding-top: 4px;
+    padding-left: 5px;
+"> 15,65
+                                        </output>
+                                    </td>
+                                    <td>
+                                        <output type="text" class="form-control" style="
+    padding-left: 9px;
+">15,6
+                                        </output>
+                                    </td>
+                                    <td>
+                                        <output type="text" class="form-control" style="
+    padding-left: 5px;
+">15,55
+                                        </output>
+                                    </td>
+                                    <td>
+                                        <output type="text" class="form-control" style="
+    padding-left: 8px;
+">15,5
+                                        </output>
+                                    </td>
+                                    <td>
+                                        <output type="text" class="form-control" style="
+    padding-left: 6px;
+">15,45
+                                        </output>
+                                    </td>
+                                    <td>
+                                        <output type="text" class="form-control" style="
+    padding-left: 9px;
+">15,4
+                                        </output>
+                                    </td>
+                                    <td>
+                                        <output type="text" class="form-control" style="
+    padding-left: 7px;
+">15,35
+                                        </output>
+                                    </td>
+                                </tr>
+
+                                 <tr>
+                                    <td><b>Mat A + FQA</b></td>
                                     <td>
                                         <output type="text" class="form-control" style="
     padding-bottom: 0px;
@@ -356,24 +494,26 @@
 
                 </div>
             </div>
-            <br> <br>
-            <button type="button" class="btn btn-default pull-right" style="
+            <br> 
+            <button id="btn1" onclick="setMedia()" type="button" class="btn btn-default pull-right" style="
     /* background: whitesmoke; */
 ">Guardar</button>
 
         </div>
 
+<iframe id="ifr1" value="" style="display:none"></iframe>
 
         <br> <br>
         <!-- Example row of columns -->
     
     <!-- Site footer -->
+	<div class="container" id="footer">
     <hr>
 
       <footer>
         <div class="row">
             <div class="col-md-4">
-                <a href="#"><p style="text-align:left">Contactos</p></a>
+                <a href="contactos.html"><p style="text-align:left">Contactos</p></a>
             </div>
         
             <div class="col-md-4">
@@ -402,7 +542,7 @@
                     </div>
                 </div>
             </div>
-      </div></footer>
+      </div></footer></div></div></div>
       </div>
 
 

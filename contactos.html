@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
 
-    <title>Início</title>
+    <title>Contacta-nos</title>
 
 
 
@@ -26,22 +26,25 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-	 <script type="text/javascript">
-    var scale = 'scale(0.9)';
-document.body.style.webkitTransform =       // Chrome, Opera, Safari
- document.body.style.msTransform =          // IE 9
- document.body.style.transform = scale;     // General
-</script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+	
+	<script type="text/javascript">
+    function enviada(){
+		var t = document.getElementById("tx");
+		if (t.value != ""){
+			tx.value = "";
+			alert("Mensagem enviada. Obrigado! Responderemos assim que possível!");
+		}
+		else
+			alert("Campo de texto vazio. Escreve a tua mensagem.");
+    }
+    </script>
 
     <style>
-	
-	
-	
 	html {
   height: 100%;
   box-sizing: border-box;
@@ -79,6 +82,7 @@ body {
 			background-image: url("wll.jpg");
 			background-repeat: no-repeat;
             background-size: cover;
+            padding-top:20px
 		}
         .form-control {
             width: 50px;
@@ -97,8 +101,8 @@ body {
         
         
         h1 {
-            color: orangered;
-            text-align: left;
+            color: white;
+            text-align: center;
             margin-top: 25px;
         }
         
@@ -126,11 +130,48 @@ body {
             margin-left: auto;
             margin-right: auto;
         }
+/*panel align center*/
+.col-centered{
+    float: none;
+    margin: 0 auto;
+    padding-top:5px;
+}
+/*property for the bootstrap panel*/
+.panel  {
+-webkit-box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+-moz-box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+}
 
-        
+.panel-default > .panel-heading {
+  color: #000 !important;
+  background: #80bfff; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #80bfff, #ffffff); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #80bfff, #ffffff); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #80bfff, #ffffff); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #80bfff, #ffffff); /* Standard syntax */
+  height:80px;
+}
+
+/*property for the HTML input placeholder*/
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
+input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
+
+/*property for reset button*/
+button[type="reset"]    {
+    background-color:transparent;
+    border:1px solid black;
+}
+
+/*Glyphicon color*/
+.blue   {
+    color: #80bfff;
+}
     </style>
 
-</head>
 
 <body>
 	<div id="container">
@@ -166,11 +207,11 @@ body {
     margin-top: 0px;
     margin-left: 70px;
 ">
-					<li class="active"><a href="inicio.html" style="margin-top: 0px; padding-top: 41px; padding-bottom: 31px;">Início</a></li>
+					<li><a href="inicio.html" style="margin-top: 0px; padding-top: 41px; padding-bottom: 31px;">Início</a></li>
 					<li><a href="cursos.html" style="margin-top: 0px; padding-top: 41px; padding-bottom: 31px;">Cursos</a></li>
 					<li><a href="media.html" style="margin-top: 0px; padding-top: 41px; padding-bottom: 31px;">Calcular Média</a></li>
 					<li><a href="forum.html" style="margin-top: 0px; padding-top: 41px; padding-bottom: 31px;">Fórum</a></li>
-					<li><a href="sobre.html" style="margin-top: 0px; padding-top: 41px; padding-bottom: 31px;">Sobre</a></li>
+					<li class="active"><a href="sobre.html" style="margin-top: 0px; padding-top: 41px; padding-bottom: 31px;">Sobre</a></li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="margin-right: 0px;padding-left: 0px;margin-left: 0px;left: 80px;padding-bottom: 5px;"><img src="Education.png" style="
     margin-left: 0px;
@@ -191,39 +232,57 @@ body {
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
-        <br><br><br><br>
-</div>
-<div class="jumbotron" id="ct1" style="
-    padding-bottom: 329px;
-">
-      <div class="container">
-          
-        <h1 style="
-    color: orangered;
-">Bem vindo, User!</h1>
-      </div>
+        <br>
+        
+<div class="page-header page-heading">
+            <h1 style="
+    margin-top: 80px;
+">Contacta-nos!</h1>
+            <div class="clearfix"></div>
+        </div>
+
+        <br>
+
+<!-- Created by Prashant Naik Email Id: pra5hant@hotmail.com you can email me for further queries-->
+
+<div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-centered">
+                    <div class="panel panel-default">
+                        
+                    <form>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user blue"></i></span>
+                                <input type="text" name="InputName" value="User" class="form-control"required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope blue"></i></span>
+                                <input type="email" name="InputEmail" value="user@gmail.com" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-comment blue"></i></span>
+                                <textarea id="tx" name="InputMessage" rows="6" autofocus="autofocus" placeholder="Escreve aqui a tua mensagem..." class="form-control" type="text" required></textarea>
+                            </div>
+                        </div>
+                        <div class="">
+                        <button onclick="enviada()" type="submit" class="btn btn-info pull-right">Send <span class="glyphicon glyphicon-send"></span></button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
+        
+        
 
-    <div class="container" style="
-    padding-top: 0px;
-">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-4" style="background-color:white;height: 200px;">
-          <h2 style="text-align:center">Calcula a tua média</h2>
-          <p><a href="media.html"><img border="0" width="100" height="100" id="calculator" src="Calculator.png" class="center"></a></p>
-        </div>
-        <div class="col-md-4" style="background-color:white;height: 200px;">
-          <h2 style="text-align:center">Escolhe o teu curso</h2>
-          <p><a href="cursos.html"><img border="0" width="100" height="100" id="coll" src="internships.png" class="center"></a></p>
-        </div>
-        <div class="col-md-4" style="background-color:white;height: 200px;">
-          <h2 style="text-align:center">Comenta no fórum</h2>
-          <p><a href="forum.html"><img id="for" src="foru.png" class="center"></a></p>
-        </div>
-      </div>
-
-	  <div class="container" id="footer">
+<div id="footer">
      <hr>
 
       <footer>
@@ -258,8 +317,8 @@ body {
                     </div>
                 </div>
             </div>
-      </div></footer></div>
-	  </div></div>
+      </div></footer>
+      </div></div></div>
 
 
     <!-- /container -->
@@ -274,5 +333,4 @@ body {
 
 
 
-
-</div></body></html>
+</body></html>

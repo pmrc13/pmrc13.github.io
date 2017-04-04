@@ -32,7 +32,46 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+	<script type="text/javascript">
+    function naoImpl(){
+        alert("Funcionalidade não implementada.");
+    }
+    </script>
+
 	<style>
+	html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+}
+
+.demo {
+  margin: 0 auto;
+  padding-top: 64px;
+  max-width: 640px;
+  width: 94%;
+}
+
+#footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
+}
 		body {
 			background-image: url("wll.jpg");
 			background-repeat: no-repeat;
@@ -86,7 +125,8 @@
 </head>
 
 <body>
-
+	<div id="container">
+	<div id="demo">
 	<nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -182,7 +222,7 @@
 				<tr>
 					<td class="text-center"><i class="fa fa-question fa-2x text-primary"></i></td>
 					<td>
-						<h4><a href="#">Universidade A</a><br><small></small></h4>
+						<h4><a onclick="naoImpl()" href="#">Universidade A</a><br><small></small></h4>
 					</td>
 					<td class="text-center hidden-xs hidden-sm"><a href="#">100</a></td>
 					<td class="hidden-xs hidden-sm">por <a href="#">User</a><br><small><i class="fa fa-clock-o"></i>há 3 meses</small></td>
@@ -190,14 +230,14 @@
                 <tr>
 					<td class="text-center"><i class="fa fa-question fa-2x text-primary"></i></td>
 					<td>
-						<h4><a href="#">Universidade B</a><br><small></small></h4>
+						<h4><a onclick="naoImpl()" href="#">Universidade B</a><br><small></small></h4>
 					</td>
 					<td class="text-center hidden-xs hidden-sm"><a href="#">100</a></td>
 					<td class="hidden-xs hidden-sm">por <a href="#">User</a><br><small><i class="fa fa-clock-o"></i>há 3 meses</small></td>
 				</tr><tr>
 					<td class="text-center"><i class="fa fa-question fa-2x text-primary"></i></td>
 					<td>
-						<h4><a href="#">Universidade C</a><br><small></small></h4>
+						<h4><a onclick="naoImpl()" href="#">Universidade C</a><br><small></small></h4>
 					</td>
 					<td class="text-center hidden-xs hidden-sm"><a href="#">100</a></td>
 					<td class="hidden-xs hidden-sm">por <a href="#">User</a><br><small><i class="fa fa-clock-o"></i>há 3 meses</small></td>
@@ -205,12 +245,13 @@
 			</tbody>
 		</table>
 		
+		<div class="container" id="footer">
 		<hr>
 
       <footer>
         <div class="row">
             <div class="col-md-4">
-                <a href="#"><p style="text-align:left">Contactos</p></a>
+                <a href="contactos.html"><p style="text-align:left">Contactos</p></a>
             </div>
         
             <div class="col-md-4">
@@ -239,7 +280,7 @@
                     </div>
                 </div>
             </div>
-      </div></footer>
+      </div></footer></div></div></div>
 
 	</div>
 

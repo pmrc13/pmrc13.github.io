@@ -1,4 +1,6 @@
-<html lang="en"><head>
+<html lang="en">
+
+<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,18 +15,22 @@
 
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
 
     <link href="main.css" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -32,10 +38,48 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-
+	<script type="text/javascript">
+    function naoImpl(){
+        alert("Funcionalidade não implementada.");
+    }
+    </script>
+	
+    <script type="text/javascript">
+    var scale = 'scale(0.9)';
+document.body.style.webkitTransform =       // Chrome, Opera, Safari
+ document.body.style.msTransform =          // IE 9
+ document.body.style.transform = scale;     // General
+</script>
 
     <script>
 $(document).ready(function(){
+
+
+document.getElementById('btnO').click();
+$("#btnO").click();
+
+$(function() {
+    //----- OPEN
+    $('[data-popup-open]').on('click', function(e)  {
+        var targeted_popup_class = jQuery(this).attr('data-popup-open');
+        $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+ 
+        e.preventDefault();
+    });
+ 
+    //----- CLOSE
+    $('[data-popup-close]').on('click', function(e)  {
+        var targeted_popup_class = jQuery(this).attr('data-popup-close');
+        $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+ 
+        e.preventDefault();
+    });
+});
+
+document.getElementById('btnO').click();
+
+
+
     $('#cb1').prop('checked', true);
     $(".legenda_todos").show();
     $(".legenda_local").hide();
@@ -82,7 +126,8 @@ $(document).ready(function(){
 
     $("#cb3").change(function() {
         if(this.checked) {
-            alert("A aplicação irá aceder à sua localização");
+            var r = confirm("A aplicação pretende aceder à sua localização.");
+            if (r == true) {
             $("#mapimg").attr("src","map2local0.png");
             $(".legenda_local").show();
             $("#formid").show();
@@ -90,6 +135,10 @@ $(document).ready(function(){
             $(".legenda_possivel").hide();
             $(".legenda_todos").hide();
             $(".espCurso").hide();
+            }
+            else{
+                this.checked = false;
+            }   
         }
         else{
             $("#formid").hide();
@@ -225,6 +274,39 @@ $(document).ready(function(){
 </script>
 
     <style>
+	html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+}
+
+.demo {
+  margin: 0 auto;
+  padding-top: 64px;
+  max-width: 640px;
+  width: 94%;
+}
+
+#footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
+}
         body {
             background-image: url("wll.jpg");
             background-repeat: no-repeat;
@@ -363,51 +445,125 @@ $(document).ready(function(){
         .label7 {
             position: absolute;
         }
+        
         .label8 {
             position: absolute;
         }
+        
         .label9 {
             position: absolute;
         }
+        
         .label10 {
             position: absolute;
         }
-        .label11{
+        
+        .label11 {
             position: absolute;
         }
+        
         .label12 {
             position: absolute;
         }
-        .label13{
+        
+        .label13 {
             position: absolute;
         }
+        
         .label14 {
             position: absolute;
         }
+        
         .pop6 {
             position: absolute;
         }
+        
         .pop8 {
             position: absolute;
         }
+        
         .goback6 {
             position: absolute;
         }
+        
         .goback5 {
             position: absolute;
         }
+        
         .goback7 {
             position: absolute;
         }
+        
         .pop7 {
             position: absolute;
         }
+        /* Outer */
+        
+        .popup {
+            width: 100%;
+            height: 100%;
+            display: none;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            background: rgba(0, 0, 0, 0.75);
+        }
+        /* Inner */
+        
+        .popup-inner {
+            max-width: 700px;
+            width: 90%;
+            padding: 40px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 1);
+            border-radius: 3px;
+            background: #fff;
+        }
+        /* Close Button */
+        
+        .popup-close {
+            width: 30px;
+            height: 30px;
+            padding-top: 4px;
+            display: inline-block;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            transition: ease 0.25s all;
+            -webkit-transform: translate(50%, -50%);
+            transform: translate(50%, -50%);
+            border-radius: 1000px;
+            background: rgba(0, 0, 0, 0.8);
+            font-family: Arial, Sans-Serif;
+            font-size: 20px;
+            text-align: center;
+            line-height: 100%;
+            color: #fff;
+        }
+        
+        .popup-close:hover {
+            -webkit-transform: translate(50%, -50%) rotate(180deg);
+            transform: translate(50%, -50%) rotate(180deg);
+            background: rgba(0, 0, 0, 1);
+            text-decoration: none;
+        }
+        
+        h2 {
+            text-align: center;
+        }
+		
+		
     </style>
 
 </head>
 
 <body>
-
+<div id="container">
+	<div id="demo">
     <div class="container">
         <!-- The justified navigation menu is meant for single line per list item.
            Multiple lines will require custom code not provided by Bootstrap. -->
@@ -416,7 +572,8 @@ $(document).ready(function(){
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" style="
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                        aria-expanded="false" style="
     width: 44px;
     height: 34px;
     margin-top: 30px;
@@ -467,6 +624,8 @@ $(document).ready(function(){
         <br><br>
 
 
+
+
         <div class="page-header page-heading">
             <h1 style="
     margin-top: 80px;
@@ -476,7 +635,9 @@ $(document).ready(function(){
 
         <br><br>
         <!-- INICIO ROW 1-->
-        <div class="row">
+        <div class="row" style="
+    margin-top: 50px;
+">
             <div class="col-md-3" style="
     margin-top: 90px;
     font-size: 17;
@@ -493,19 +654,20 @@ $(document).ready(function(){
                 <div class="checkbox">
                     <label><input id="cb3" class="checkbox1" type="checkbox" value="">Cursos por localização</label>
                 </div>
-                 <form name="rangeForm" id="formid" style="display: none;">
-                     <input type="range" name="rangeInputName" id="rangeInputId" value="0" min="0" max="20" step="10" oninput="rangeOutputId.value = rangeInputId.value">
-                     <output><output name="rangeOutputName" id="rangeOutputId">0</output>km</output>
-                 </form>
+                <form name="rangeForm" id="formid" style="display: none;">
+                    <input type="range" name="rangeInputName" id="rangeInputId" value="0" min="0" max="20" step="10" oninput="rangeOutputId.value = rangeInputId.value">
+                    <output>
+                        <output name="rangeOutputName" id="rangeOutputId">0</output>km</output>
+                </form>
                 <div class="checkbox">
                     <label><input id="cb4" class="checkbox1" type="checkbox" value="">Especificar curso</label>
                 </div>
-                <div class="espCurso" style="">
-                <input type="text" id="cursotexto">
-                <button id="botao1" type="button" style="
+                <div class="espCurso" style="display: none;">
+                    <input type="text" id="cursotexto">
+                    <button id="botao1" type="button" style="
     margin-top: 5px;
 ">Pesquisar</button>
-               </div>
+                </div>
             </div>
 
 
@@ -513,16 +675,16 @@ $(document).ready(function(){
                 <div class="col-md-6">
                     <img id="mapimg" src="map2todos.png" class="center">
 
-                    <img src="zoomin.png" class="center" style="
-    margin-left: 393.5;
+                    <a href="#"><img src="zoomin.png" class="center" style="
+    margin-left: 410;
     margin-top: -250;
     margin-bottom: 1px;
     padding-bottom: 0px;
-">
-                    <img src="zoomout.png" class="center" style="
-    margin-left: 393.5;
+"></a>
+                    <a href="#"><img src="zoomout.png" class="center" style="
+    margin-left: 410;
     margin-top: 10px;
-">
+"></a>
                     <a class="fctgreen" style="
     left: 244px;
     top: 294.986;
@@ -616,8 +778,8 @@ $(document).ready(function(){
                         <p class="label9" style="left: -10;top: 57px;margin-left: 9px;height: 50px;width: 250px;/* width: 95px; */"><b>Website: </b> <a href="http://www.fct.unl.pt/"> http://www.fct.unl.pt</a> </p>
                         <p class="label10" style="left: -10;top: 81px;margin-left: 9px;height: 50px;width: 250px;/* width: 95px; */"><b>Ensino: </b> Universitário Público </p>
 
-                        
-                        
+
+
 
                         <img class="goback5" src="goback.png" style="left: 191px;bottom: -20;top: 94px;">
                     </div>
@@ -626,8 +788,8 @@ $(document).ready(function(){
                         <p class="label11" style="left: -10;top: 0px;margin-left: 9px;height: 50px;width: 150px;/* width: 95px; */"><b>Feedback dos utilizadores: </b>5/5</p>
                         <p class="label12" style="left: -10;top: 57px;margin-left: 9px;height: 50px;width: 250px;/* width: 95px; */"><b> </b> <a href="feedback.html"> Ver mais feedback</a> </p>
 
-                        
-                        
+
+
 
                         <img class="goback6" src="goback.png" style="left: 191px;bottom: -20;top: 94px;">
                     </div>
@@ -636,8 +798,8 @@ $(document).ready(function(){
                         <p class="label13" style="left: -10;top: 12px;margin-left: 9px;height: 50px;width: 200px;/* width: 95px; */"><b>Propinas: </b>1.064€ (2016)</p>
                         <p class="label14" style="left: -10;top: 49px;margin-left: 9px;height: 50px;width: 200px;/* width: 95px; */"><b>Aluguer de quarto e despesas: </b> 200€ - 300€ </p>
 
-                        
-                        
+
+
 
                         <img class="goback7" src="goback.png" style="left: 191px;bottom: -20;top: 94px;">
                     </div>
@@ -649,74 +811,155 @@ $(document).ready(function(){
     background-color: white;
     border-radius: 20px;
 ">
-                <label>Legenda</label>
 
+                <label style="padding-bottom: 10px;">Legenda</label>
+                
                 <p><img src="black.png"> - FCT/UNL (interpretar como sendo verde)</p>
-                <div class="legenda_todos" style="top: 120px; left: 137px; display: none;">                        
-                        <p><img class="maptodosverde" src="green.png" style="left: 189px;bottom: -20;"> - Qualquer faculdade</p>
+                <div class="legenda_todos" style="top: 120px; left: 137px;">
+                    <p><img class="maptodosverde" src="green.png" style="left: 189px;bottom: -20;"> - Qualquer faculdade</p>
                 </div>
 
-                <div class="legenda_local" style="top: 120px; left: 137px; display: none;">                        
-                        <p><img class="maplocalverde" src="green.png" style="left: 189px;bottom: -20;"> - Faculdade no raio de km</p>
-                        <p><img class="maplocalvermelho" src="red.png" style="left: 189px;bottom: -20;"> - Faculdade fora do raio de km</p>
+                <div class="legenda_local" style="top: 120px; left: 137px; display: none;">
+                    <p><img class="maplocalverde" src="green.png" style="left: 189px;bottom: -20;"> - Faculdade no raio de km</p>
+                    <p><img class="maplocalvermelho" src="red.png" style="left: 189px;bottom: -20;"> - Faculdade fora do raio
+                        de km</p>
                 </div>
 
-                <div class="legenda_possivel" style="top: 120px; left: 137px; display: none;">                        
-                        <p><img class="mappossivelverde" src="green.png" style="left: 189px;bottom: -20;"> - Faculdade com cursos para os quais se realizaram as provas de ingresso necessárias e cuja média do ano passado foi inferior à do utilizador</p>
-                        <p><img class="mappossivelamarelo" src="yellow.png" style="left: 189px;bottom: -20;"> - Faculdade com cursos para os quais se realizaram as provas de ingresso necessárias e cuja média do ano passado foi superior/igual à do utilizador</p>
-                        <p><img class="mappossivelvermelho" src="red.png" style="left: 189px;bottom: -20;"> - Faculdade com cursos para os quais não se realizaram as provas de ingresso necessárias</p>
+                <div class="legenda_possivel" style="top: 120px; left: 137px; display: none;">
+                    <p><img class="mappossivelverde" src="green.png" style="left: 189px;bottom: -20;"> - Faculdade com cursos
+                        para os quais se realizaram as provas de ingresso necessárias e cuja média do ano passado foi inferior
+                        à do utilizador</p>
+                    <p><img class="mappossivelamarelo" src="yellow.png" style="left: 189px;bottom: -20;"> - Faculdade com cursos
+                        para os quais se realizaram as provas de ingresso necessárias e cuja média do ano passado foi superior/igual
+                        à do utilizador</p>
+                    <p><img class="mappossivelvermelho" src="red.png" style="left: 189px;bottom: -20;"> - Faculdade com cursos
+                        para os quais não se realizaram as provas de ingresso necessárias</p>
                 </div>
 
-                <div class="legenda_curso" style="top: 120px; left: 137px; display: block;">                        
-                        <p><img class="mappossivelverde" src="green.png" style="left: 189px;bottom: -20;"> - Faculdade com o curso pretendido e cuja média do ano passado foi inferior à do utilizador</p>
-                        <p><img class="mappossivelamarelo" src="yellow.png" style="left: 189px;bottom: -20;"> - Faculdade com o curso pretendido e cuja média do ano passado foi superior/igual à do utilizador</p>
-                        <p><img class="mappossivelvermelho" src="red.png" style="left: 189px;bottom: -20;"> - Faculdade sem o curso pretendido</p>
+                <div class="legenda_curso" style="top: 120px; left: 137px; display: none;">
+                    <p><img class="mappossivelverde" src="green.png" style="left: 189px;bottom: -20;"> - Faculdade com o curso
+                        pretendido e cuja média do ano passado foi inferior à do utilizador</p>
+                    <p><img class="mappossivelamarelo" src="yellow.png" style="left: 189px;bottom: -20;"> - Faculdade com o
+                        curso pretendido e cuja média do ano passado foi superior/igual à do utilizador</p>
+                    <p><img class="mappossivelvermelho" src="red.png" style="left: 189px;bottom: -20;"> - Faculdade sem o curso
+                        pretendido</p>
                 </div>
+
 
             </div>
-            <br> <br> 
+
+            <a id="btnO" style="display:none" class="btn" data-popup-open="popup-1" href="#">Open Popup #1</a>
+
+
+            <div class="popup" data-popup="popup-1" style="display: block;">
+                <div class="popup-inner" style="
+    top: 394px;
+">
+                    <h2>Média não definida!</h2>
+                    <img src="alert.png" style="
+    margin-top: -75;
+    margin-bottom: 15px;
+">
+
+                    <p>Para pesquisar cursos, tens de informar o sistema da tua média de ensino secundário (sem exames), bem
+                        como dos resultados dos exames que realizaste.</p>
+                    <p>Se ainda não calculaste a tua média, não te preocupes! Podes usar a nossa calculadora. Basta acederes
+                        ao separador <a href="media.html">"Calcular Média"</a>.</p>
+
+                    <br>
+
+                    <label>Média do ensino secundário:</label>
+
+                    <input type="text" class="form-control" value="">
+
+                    <br> <br>
+                    <p><label>Exames:</label></p>
+
+                    <div class="exames" style="
+    margin-left: 169px;
+">
+                        <label>Disciplina:</label>
+                        <input type="text" class="form-control" value="">
+                        <label style="
+    margin-left: 10px;
+">Resultado:</label>
+                        <input type="text" class="form-control" value="">
+
+                        <br> <br>
+                        <label>Disciplina:</label>
+                        <input type="text" class="form-control" value="">
+                        <label style="
+    margin-left: 10px;
+">Resultado:</label>
+                        <input type="text" class="form-control" value="">
+
+
+
+                    </div>
+                    <br>
+                    <p><a href="#" style="
+    margin-left: 240px;
+    margin-top: 15px;
+">+(adicionar exames)</a></p>
+
+                    <button id="botao2" data-popup-close="popup-1" class="btn pull-right" type="button">Confirmar</button>
+                </div>
+            </div>
+
+
+            <br> <br>
         </div>
-        
-<br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-     <hr>
 
-      <footer>
-        <div class="row">
-            <div class="col-md-4">
-                <a href="#"><p style="text-align:left">Contactos</p></a>
-            </div>
-        
-            <div class="col-md-4">
-                <p style="text-align:center">2016 © UniEscolha</p>
-            </div>
-            
-            <div class="col-md-3" style="
+
+
+        <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+		
+		<div class="container" id="footer">
+        <hr>
+
+        <footer>
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="contactos.html">
+                        <p style="text-align:left">Contactos</p>
+                    </a>
+                </div>
+
+                <div class="col-md-4">
+                    <p style="text-align:center">2016 © UniEscolha</p>
+                </div>
+
+                <div class="col-md-3" style="
     width: 290px;
     left: 57px;
 ">
-                
-                <div class="row" style="position: absolute;left: 112px;top: -15;">
-                    <div class="col-md-3" style="
+
+                    <div class="row" style="position: absolute;left: 112px;top: -15;">
+                        <div class="col-md-3" style="
     left: 0px;
     margin-left: 50px;
 ">
-                    <img border="0" id="coll" src="face.png">
-                    </div>
+                            <img border="0" id="coll" src="face.png">
+                        </div>
 
-                    <div class="col-md-3">
-                    <img border="0" id="coll" src="twi.png" class="center">
-                    </div>
+                        <div class="col-md-3">
+                            <img border="0" id="coll" src="twi.png" class="center">
+                        </div>
 
-                    <div class="col-md-3">
-                    <img border="0" id="coll" src="insta.png" class="center">
+                        <div class="col-md-3">
+                            <img border="0" id="coll" src="insta.png" class="center">
+                        </div>
                     </div>
                 </div>
             </div>
-      </div></footer>
-      </div>
+        </footer></div>
+    </div>
+	</div>
+	</div>
 
 
 
 
+</body>
 
-</body></html>
+</html>
